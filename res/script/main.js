@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveen | GitHub</title>
-    <link rel="stylesheet" href="res/style/main.css">
-    <script>
-    function pass(){
+function pass(){
     var passcode = document.getElementById("password").value;
     if (passcode=="n9751574651"){
         window.location.href = "/res/html/sample.html";
@@ -28,14 +19,3 @@
             );
     }
 }
-    </script>
-</head>
-<body>
-    <form onsubmit="return pass()" method="POST">
-        <h1>Naveen</h1>
-        <input type="password" name="password" id="password">
-        <input type="submit" value="Login!">
-        <span style="color: red;" id="alert"></span>
-    </form>
-</body>
-</html>
