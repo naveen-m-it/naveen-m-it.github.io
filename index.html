@@ -6,10 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naveen | GitHub</title>
 </head>
+<script>
+    function bg_changer(){
+        var val = document.getElementById("btn").value;
+        if (val=="Light"){
+            document.getElementById("btn").value = "Dark";
+            document.body.style.backgroundColor = "rgb(255,255,255)";
+            document.getElementById("btn").style.color = "rgb(12,12,12)";
+            document.getElementById("btn").style.backgroundColor = "rgb(255,255,255)";
+            document.getElementById("btn").style.border = "2px solid rgb(12,12,12)";
+            document.getElementById("main-card").style.backgroundColor = "rgb(12,12,12)";
+            document.getElementById("text").style.color = "rgb(255,255,255)";
+        }
+        else if(val=="Dark"){
+            document.getElementById("btn").value = "Light";
+            document.body.style.backgroundColor = "rgb(12,12,12)";
+            document.getElementById("btn").style.color = "rgb(255,255,255)";
+            document.getElementById("btn").style.backgroundColor = "rgb(12,12,12)";
+            document.getElementById("btn").style.border = "2px solid rgb(255,255,255)";
+            document.getElementById("main-card").style.backgroundColor = "rgb(255,255,255)";
+            document.getElementById("text").style.color = "rgb(12,12,12)";
+        }
+    }
+    let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if(matched)
+	console.log('Currently in dark mode');
+else
+	console.log('Currently not in dark mode');
+</script>
+<style>
+    *{
+        font-family: 'roboto',sans-serif;
+        font-weight: bold;
+    }
+    body{
+        background-color: rgb(255,255,255);
+    }
+    #main-card{
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgb(12, 12, 12);
+        border: 5px solid green;
+    }
+    #btn{
+        float: right;
+        color: rgb(12, 12, 12);
+        padding: 8px 16px;
+        background-color: transparent;
+        border: 2px solid rgb(12, 12, 12);
+        border-radius: 10px ;
+        font-size: larger;
+        cursor: pointer;
+    }
+    #btn:hover{
+        background-color: rgba(255,255,255,.4);
+    }
+    #text{
+        justify-content: center;
+        color: white;
+    }
+</style>
 <body>
-    <h1>Naveen</h1>
-    <p>This is my first web page host via github</p>
-    <a href="./res/html/sample.html">sample</a>
-    <p>This my first web page using html and css and javascript and mysql and php python java cpp c and ruby my name is naveen kumar hello this is naveen meena archana kumar anaimaduvu village city country century my name is naveen from kallakurichi excel engineering college komarapalayam namakkal erode coimbatore tamilnadu india kerala bhutan gurgon nepal china korea japan use america where are you comming from ? i'm from kerala india nice shirt t-shirt trouser bench branch naveen kumar anaimaduvu tamil nadu kela vennai phone my number is id class seventh kumari hello this is naveen kumar python programming language scripting language</p>
+    <input type="button" value="Dark" onclick="bg_changer()" id="btn">
+    <div id="main-card">
+        <center><h1 id="text">This is Naveen Kumar</h1></center>
+    </div>
+
 </body>
 </html>
