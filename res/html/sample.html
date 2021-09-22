@@ -6,7 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sample</title>
 </head>
+<style>
+    #main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        width: 50px;
+        height: 20px;
+        border-radius: 10px 10px 10px 10px;
+        border: 1px solid black;
+    }
+    #btn{
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%,-50%);
+        height: 16px;
+        width: 16px;
+        background-color: green;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    #btn:hover{
+        background-color: green;
+        height: 18px;
+        width: 18px;
+        transition: .3s;
+    }
+</style>
+<script>
+    function click(){
+        document.getElementById("btn").style.position="absolute";
+        document.getElementById("btn").style.top= "50%";
+        document.getElementById("btn").style.left= "80%";
+        document.getElementById("btn").style.transform= "translate(-50%,-50%);";
+    }
+</script>
 <body>
-    <h1>Naveen</h1>
+    <div id="main">
+        <div id="btn" onclick="click()"></div>
+    </div>
 </body>
 </html>
