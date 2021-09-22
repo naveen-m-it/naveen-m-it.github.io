@@ -5,37 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naveen | GitHub</title>
-    <link rel="stylesheet" href="res/style/main.css">
-    <script>
-    function pass(){
-    var passcode = document.getElementById("password").value;
-    if (passcode=="n9751574651"){
-        window.location.href = "https://naveen-m-it.github.io/res/html/sample.html";
-        window.alert("success!");
-    }
-    else{
-        document.getElementById("alert").innerHTML = "Who are You?"
-        Email.send({
-            Host: "smtp.gmail.com",
-            Username : "www.naveenmnka9655@gmail.com",
-            Password : "n9751574651",
-            To : 'www.naveenmnka15@gmail.com',
-            From : "Naveen's Portal",
-            Subject : "Who one tried to login",
-            Body : "Alert!",
-            }).then(
-                message => alert("mail sent successfully")
-            );
-    }
-}
-    </script>
 </head>
 <body>
-    <form onsubmit="return pass()" method="POST">
-        <h1>Naveen</h1>
-        <input type="password" name="password" id="password">
-        <input type="submit" value="Login!">
-        <span style="color: red;" id="alert"></span>
-    </form>
+    <h1>Naveen</h1>
+    <p>This is my first web page host via github</p>
+    <a href="/res/html/sample.html">sample</a>
 </body>
 </html>
