@@ -4,49 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sample</title>
+    <title>Document</title>
+    <script src="script1.js"></script>
+    <link rel="stylesheet" href="css1.css">
 </head>
-<style>
-    #main{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background-color: white;
-        width: 50px;
-        height: 20px;
-        border-radius: 10px 10px 10px 10px;
-        border: 1px solid black;
-    }
-    #btn{
-        position: absolute;
-        top: 50%;
-        left: 20%;
-        transform: translate(-50%,-50%);
-        height: 16px;
-        width: 16px;
-        background-color: green;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-    #btn:hover{
-        background-color: green;
-        height: 18px;
-        width: 18px;
-        transition: .3s;
-    }
-</style>
-<script>
-    function click(){
-        document.getElementById("btn").style.position="absolute";
-        document.getElementById("btn").style.top= "50%";
-        document.getElementById("btn").style.left= "80%";
-        document.getElementById("btn").style.transform= "translate(-50%,-50%);";
-    }
-</script>
 <body>
-    <div id="main">
-        <div id="btn" onclick="click()"></div>
-    </div>
+    <form action="" method="post">
+        <h1>Login</h1>
+        <label for="" id="label">Name</label>
+        <input type="text" name="name" id="input">
+        <label for="" id="label">Password</label>
+        <input type="password" name="password" id="input">
+        <input type="submit" value="Login" id="btn">
+        <input type="reset" value="Clear" id="btn">
+    </form>
 </body>
 </html>

@@ -35,6 +35,8 @@
     *{
         font-family: 'roboto',sans-serif;
         font-weight: bold;
+        margin: 0;
+        padding: 0;
     }
     body{
         background-color: rgb(255,255,255);
@@ -65,7 +67,7 @@
     }
     #text{
         position: absolute;
-        top: 0%;
+        top: 3%;
         left: 50%;
         transform: translate(-50%,-50%);
         justify-content: center;
@@ -85,13 +87,36 @@
     #text-area:focus{
         outline: none;
     }
+    #bar-left{
+        margin: .5%;
+        position: absolute;
+        top: 1.75%;
+        width: 3%;
+        height: 95%;
+        float: left;
+        background-color: white;
+        border: 3px solid rgb(131, 131, 131);
+    }
+    #bar-right{
+        position: absolute;
+        top: 4%;
+        width: 3%;
+        height: 90%;
+        left: 95%;
+        margin: .5%;
+        background-color: white;
+        border: 3px solid rgb(131, 131, 131);
+    }
 </style>
 <body>
     <input type="button" value="🌑" onclick="bg_changer()" id="btn">
+    <div id="bar-left">
+    </div>
+    <div id="bar-right"></div>
     <div id="main-card">
         <center><h1 id="text">E-Board</h1></center>
-        <textarea name="text" id="text-area" cols="30" rows="10"></textarea>
+        <textarea name="text" id="text-area" cols="30" rows="10" contenteditable="true"></textarea>
+        <div id="dummy" class="original"></div>
     </div>
-
 </body>
 </html>
