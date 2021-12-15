@@ -1,122 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        *{
+            font-family: 'roboto',sans-serif;
+        }
+        #pdf{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveen | GitHub</title>
+    <title>Naveen M</title>
 </head>
-<script>
-    function bg_changer(){
-        var val = document.getElementById("btn").value;
-        if (val=="☀️"){
-            document.getElementById("btn").value = "🌑";
-            document.body.style.backgroundColor = "rgb(255,255,255)";
-            document.getElementById("btn").style.color = "rgb(12,12,12)";
-            document.getElementById("btn").style.backgroundColor = "rgb(255,255,255)";
-            document.getElementById("main-card").style.backgroundColor = "rgb(12,12,12)";
-            document.getElementById("text").style.color = "rgb(255,255,255)";
-            document.getElementById("text-area").style.backgroundColor = "rgb(12,12,12)";
-            document.getElementById("text-area").style.color = "white";
-        }
-        else if(val=="🌑"){
-            document.getElementById("btn").value = "☀️";
-            document.body.style.backgroundColor = "rgb(12,12,12)";
-            document.getElementById("btn").style.color = "rgb(255,255,255)";
-            document.getElementById("btn").style.backgroundColor = "rgb(12,12,12)";
-            document.getElementById("main-card").style.backgroundColor = "rgb(255,255,255)";
-            document.getElementById("text").style.color = "rgb(12,12,12)";
-            document.getElementById("text-area").style.backgroundColor = "rgb(255,255,255)";
-            document.getElementById("text-area").style.color = "rgb(12,12,12)";
-        }
-    }
-</script>
-<style>
-    *{
-        font-family: 'roboto',sans-serif;
-        font-weight: bold;
-        margin: 0;
-        padding: 0;
-    }
-    body{
-        background-color: rgb(255,255,255);
-    }
-    #main-card{
-        width: 90%;
-        height: 90%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background-color: rgb(12, 12, 12);
-        border: 5px solid green;
-    }
-    #btn{
-        right: 1%;
-        width: 40px;
-        height: 40px;
-        float: right;
-        color: rgb(12, 12, 12);
-        border: none;
-        background-color: transparent;
-        font-size: medium;
-        cursor: pointer;
-    }
-    #btn:focus{
-        border: none;
-    }
-    #text{
-        position: absolute;
-        top: 3%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        justify-content: center;
-        color: white;
-    }
-    #text-area{
-        margin-top: 5%;
-        align-items: center;
-        background-color: rgb(12, 12, 12);
-        color: rgb(255,255,255);
-        border: none;
-        width: 99.5%;
-        height: 87.5%;
-        font-size: x-large;
-        padding: 3px;
-    }
-    #text-area:focus{
-        outline: none;
-    }
-    #bar-left{
-        margin: .5%;
-        position: absolute;
-        top: 1.75%;
-        width: 3%;
-        height: 95%;
-        float: left;
-        background-color: white;
-        border: 3px solid rgb(131, 131, 131);
-    }
-    #bar-right{
-        position: absolute;
-        top: 4%;
-        width: 3%;
-        height: 90%;
-        left: 95%;
-        margin: .5%;
-        background-color: white;
-        border: 3px solid rgb(131, 131, 131);
-    }
-</style>
 <body>
-    <input type="button" value="🌑" onclick="bg_changer()" id="btn">
-    <div id="bar-left">
-    </div>
-    <div id="bar-right"></div>
-    <div id="main-card">
-        <center><h1 id="text">E-Board</h1></center>
-        <textarea name="text" id="text-area" cols="30" rows="10" contenteditable="true"></textarea>
-        <div id="dummy" class="original"></div>
-    </div>
+      <iframe src="./res/document/Naveen.pdf#toolbar=0&zoom=none" style="width:500px; height:680px;" frameborder="0" id="pdf"></iframe>
 </body>
 </html>
