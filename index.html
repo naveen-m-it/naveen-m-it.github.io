@@ -2,16 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://github.com/naveen-m-it/naveen-m-it.github.io/tree/main/styles/main.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jsConsole</title>
 </head>
 <style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'roboto',sans-serif;
+    }
+    header{
+        background-color: rgb(42, 42, 42);
+    }
+    .title-name{
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+    #console-text{
+        resize: none;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        font-family: Verdana;
+        width: 95%;
+        height: 90%;
+    }
+    .console-btn-area{
+        width: 100%;
+        height: 20px;
+        background-color: rgb(32, 32, 32);
+        display: flex;
+        justify-content: center;
+    }
+    .console-btn{
+        position: absolute;
+        top: 95%;
+        bottom: 0;
+        margin-left: 20%;
+    }
+    .console-result{
+        margin: 5%;
+    }
+    #btn{
+        border-radius: 5px;
+        font-size: larger;
+        padding: .5rem 1rem;
+        background-color: green;
+        border: none;
+    }
+    #btn:focus{
+        outline: none;
+    }
 </style>
 <body>
     <header class="head">
         <h1 class="title-name">JavaSript Console</h1>
     </header>
+    <div class="main-card">
+        <div class="console">
+            <div class="console-box">
+                <textarea name="console" id="console-text">
+                </textarea>
+            </div>
+            <br><br>
+            <div class="console-btn">
+                <br>
+                <input type="button" value="Run" id="btn">
+                    <button id="btn">&#10227;</button>
+            </div>
+            <div class="console-result">
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
