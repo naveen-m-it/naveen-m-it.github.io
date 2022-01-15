@@ -4,57 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sample</title>
-<style>
-    .box-main{
-        animation: anime 1s;
-        animation-fill-mode: backwards;
-        animation-iteration-count: infinite;
-        width: 200px;
-        height: 200px;
-        background-color: blue;
-    }
-    @keyframes anime {
-        from{
-            background-color: black;
-        }
-        to{
-            background-color: white;
-        }
-    }
-    @keyframes ball {
-        50%{
-            transform: scale(2);
-        }
-        100%{
-            transform: scale(1);
-        }
-    }
-    .main-content{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
-    #card-b{
-        animation: ball .2s;
-        animation-iteration-count: infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background-color: red;
-        width: 20px;
-        height: 20px;
-        border-radius: 10px;
-    }
-</style>
+    <title>jsConsole</title>
 </head>
 <body>
-    <div class="main-content">
-        <div class="box-main">
-            <div id="card-b"></div>
-        </div>
-    </div>
+    <header class="head">
+        <h1 class="title-name">JavaSript Console</h1>
+    </header>
 </body>
 </html>
