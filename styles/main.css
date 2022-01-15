@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto',sans-serif;
+}
+header{
+    cursor: default;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 6em;
+    color: white;
+    background-color: rgba(32, 32, 32, 1);
+    height: 5%;
+    box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.3);
+}
+.player-name{
+    text-align: center;
+}
+#player-name:focus{
+    outline: none;
+}
+#player-name{
+    border-radius: .5rem;
+    padding: .5em;
+    font-size: 2em;
+    width: 12em;
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+.start-btn{
+    cursor: pointer;
+    padding: .5em 1.5em;
+    border: 0;
+    font-size: 2em;
+    background-color: green;
+    color: white;
+    box-shadow: 0 12px 24px 0 rgba(0, 255, 0, 0.3);
+}
+.start-btn:hover{
+    background-color: lightgreen;
+    transition: ease-in-out .2s;
+}
+.exit-btn{
+    cursor: pointer;
+    padding: .5em 3em;
+    border: 0;
+    font-size: 2em;
+    background-color: red;
+    color: white;
+    box-shadow: 0 12px 24px 0 rgba(255, 0, 0, 0.3);
+}
+.exit-btn:hover{
+    background-color: lightcoral;
+    transition: ease-in-out .2s;
+}
+li{
+    list-style: none;
+    margin: 4.5rem;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+}
+.main-content{
+    padding: 4.5em 0 0 4em;
+    background-color: rgba(42, 42, 42, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

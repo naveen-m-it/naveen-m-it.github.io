@@ -1,23 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        *{
-            font-family: 'roboto',sans-serif;
-        }
-        #pdf{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-        }
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveen M</title>
+    <title>sample</title>
+<style>
+    .box-main{
+        animation: anime 1s;
+        animation-fill-mode: backwards;
+        animation-iteration-count: infinite;
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+    @keyframes anime {
+        from{
+            background-color: black;
+        }
+        to{
+            background-color: white;
+        }
+    }
+    @keyframes ball {
+        50%{
+            transform: scale(2);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    .main-content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    #card-b{
+        animation: ball .2s;
+        animation-iteration-count: infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+    }
+</style>
 </head>
 <body>
-      <iframe src="./res/document/Naveen.pdf#toolbar=0" style="width:500px; height:680px;" frameborder="0" id="pdf"></iframe>
+    <div class="main-content">
+        <div class="box-main">
+            <div id="card-b"></div>
+        </div>
+    </div>
 </body>
 </html>

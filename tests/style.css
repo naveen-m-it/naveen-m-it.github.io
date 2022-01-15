@@ -1,0 +1,35 @@
+*{
+    font-family: 'roboto',sans-serif;
+    margin: 0%;
+    padding: 0%;
+}
+header{
+    background-color: rgb(42, 42, 42);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    cursor: default;
+    box-shadow: 0px 12px 24px 0 rgba(0, 0, 0, .3);
+}
+#game-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#btn-start{
+    border-radius: 3rem;
+    cursor: pointer;
+    font-size: 4rem;
+    border: 0;
+    padding: .5rem 1rem;
+    color: white;
+    background-color: green;
+}
+#btn-start:hover{
+    border-radius: 3rem;
+    background-color: lightgreen;
+    transition: ease .3s;
+}
