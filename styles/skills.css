@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'roboto',sans-serif;
+}
+html{
+
+    background-color: rgb(32, 32, 32);
+}
+header{
+    background-color: rgb(42, 42, 42);
+    padding: 20px 24px;
+    color: white;
+}
+header a{
+    cursor: pointer;
+    margin-top: -1.5rem;
+    color: white;
+    text-decoration: none;
+    float: right
+}
+.skills{
+    margin: 20px;
+    color: white;
+    padding: 20px;
+}
+.language{
+    padding: 20px;
+    color: white;
+}
+.language .details{
+    padding: 20px;
+    font-weight: bold;
+}

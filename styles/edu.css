@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'roboto',sans-serif;
+}
+html{
+
+    background-color: rgb(32, 32, 32);
+}
+header{
+    background-color: rgb(42, 42, 42);
+    padding: 20px 24px;
+    color: white;
+}
+header a{
+    cursor: pointer;
+    margin-top: -1.5rem;
+    color: white;
+    text-decoration: none;
+    float: right
+}
+.university{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.university h1{
+    padding: 20px;
+}
+.university .details{
+    font-weight: bold;
+    padding: 20px;
+    line-height: 2rem;
+    color: white;
+}
