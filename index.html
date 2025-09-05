@@ -42,6 +42,13 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();               // fullscreen
+        tg.disableVerticalSwipes();// optional
+    </script>
+
     <div class="w-full max-w-2xl mx-auto">
         
         <!-- Start Screen -->
