@@ -6,7 +6,7 @@
     <title>Dynamic Quiz</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Custom Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,6 @@
         const tg = window.Telegram.WebApp;
         tg.ready();
         tg.expand();               // fullscreen
-        tg.disableVerticalSwipes();// optional
     </script>
 
     <div class="w-full max-w-2xl mx-auto">
