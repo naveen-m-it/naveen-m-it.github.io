@@ -52,11 +52,11 @@
         
         <!-- Start Screen -->
         <div id="start-screen" class="bg-white p-8 rounded-xl shadow-lg text-center transition-opacity duration-500">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome to the Quiz!</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">இந்தியப் பொருளாதாரம்</h1>
             <p class="text-gray-600 mb-6">Please enter your name to begin.</p>
             <input type="text" id="username" class="w-full max-w-sm mx-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" placeholder="Your Name">
             <button id="start-btn" class="w-full max-w-sm mx-auto bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                Start Quiz
+                Start Test
             </button>
             <p id="username-error" class="text-red-500 mt-4 text-sm h-4"></p>
         </div>
@@ -96,14 +96,14 @@
     <script>
         const quizData = [
             {
-                question: "What is the capital of France?",
-                options: ["Berlin", "Madrid", "Paris", "Rome"],
-                answer: "Paris"
+                question: "இந்தியப் பொருளாதாரம் 'கலப்புப் பொருளாதாரம்' (Mixed Economy) என்று அழைக்கப்படக் காரணம் என்ன? ",
+                options: ["வேளாண்மை மற்றும் தொழில் துறைகள் சம அளவில் இருப்பது","பொதுத்துறை மற்றும் தனியார் துறை இணைந்து செயல்படுவது","சிறு மற்றும் பெருந்தொழில்கள் இணைந்து இருப்பது","இறக்குமதி மற்றும் ஏற்றுமதி சமமாக இருப்பது."],
+                answer: "பொதுத்துறை மற்றும் தனியார் துறை இணைந்து செயல்படுவது"
             },
             {
-                question: "Which planet is known as the Red Planet?",
-                options: ["Earth", "Mars", "Jupiter", "Venus"],
-                answer: "Mars"
+                question: "கீழ்க்காணும் கூற்றுகளைக் கருத்தில் கொள்க:\nகூற்று 1: இந்தியாவின் மொத்த உள்நாட்டு உற்பத்தியில் (GDP) வேளாண்மையின் பங்கு குறைவாக இருந்தாலும், அதிக அளவிலான மக்கள் வேலைவாய்ப்பிற்கு வேளாண்மையைச் சார்ந்துள்ளனர்.\n கூற்று 2: இந்தியப் பொருளாதாரத்தில் காணப்படும் 'மறைமுக வேலையின்மை' (Disguised Unemployment) பெரும்பாலும் சேவைத் துறையில் காணப்படுகிறது. சரியான விடையைத் தேர்ந்தெடுக்கவும்:",
+                options: ["கூற்று 1 மட்டும் சரி","கூற்று 2 மட்டும் சரி","இரண்டு கூற்றுகளும் சரி","இரண்டு கூற்றுகளும் தவறு"],
+                answer: "கூற்று 1 மட்டும் சரி"
             },
             {
                 question: "What is the largest ocean on Earth?",
@@ -231,7 +231,7 @@
             quizScreen.classList.add('hidden');
             resultScreen.classList.remove('hidden');
 
-            resultTitle.textContent = `Quiz Results for ${username}`;
+            resultTitle.textContent = `Test Results for ${username}`;
             scoreText.textContent = `You scored ${score} out of ${quizData.length}!`;
             
             resultsDetails.innerHTML = '';
