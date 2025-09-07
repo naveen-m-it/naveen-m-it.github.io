@@ -52,7 +52,7 @@
         
         <!-- Start Screen -->
         <div id="start-screen" class="bg-white p-8 rounded-xl shadow-lg text-center transition-opacity duration-500">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">இந்தியப் பொருளாதாரம்</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">தமிழ் தகுதித் தேர்வு 1</h1>
             <p class="text-gray-600 mb-6">Please enter your name to begin.</p>
             <input type="text" id="username" class="w-full max-w-sm mx-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" placeholder="Your Name">
             <button id="start-btn" class="w-full max-w-sm mx-auto bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -94,33 +94,18 @@
     </div>
 
     <script>
-        const quizData = [
-            {
-                question: "இந்தியப் பொருளாதாரம் 'கலப்புப் பொருளாதாரம்' (Mixed Economy) என்று அழைக்கப்படக் காரணம் என்ன? ",
-                options: ["வேளாண்மை மற்றும் தொழில் துறைகள் சம அளவில் இருப்பது","பொதுத்துறை மற்றும் தனியார் துறை இணைந்து செயல்படுவது","சிறு மற்றும் பெருந்தொழில்கள் இணைந்து இருப்பது","இறக்குமதி மற்றும் ஏற்றுமதி சமமாக இருப்பது."],
-                answer: "பொதுத்துறை மற்றும் தனியார் துறை இணைந்து செயல்படுவது"
-            },
-            {
-                question: "கீழ்க்காணும் கூற்றுகளைக் கருத்தில் கொள்க:\nகூற்று 1: இந்தியாவின் மொத்த உள்நாட்டு உற்பத்தியில் (GDP) வேளாண்மையின் பங்கு குறைவாக இருந்தாலும், அதிக அளவிலான மக்கள் வேலைவாய்ப்பிற்கு வேளாண்மையைச் சார்ந்துள்ளனர்.\nகூற்று 2: இந்தியப் பொருளாதாரத்தில் காணப்படும் 'மறைமுக வேலையின்மை' (Disguised Unemployment) பெரும்பாலும் சேவைத் துறையில் காணப்படுகிறது.\nசரியான விடையைத் தேர்ந்தெடுக்கவும்:",
-                options: ["கூற்று 1 மட்டும் சரி","கூற்று 2 மட்டும் சரி","இரண்டு கூற்றுகளும் சரி","இரண்டு கூற்றுகளும் தவறு"],
-                answer: "கூற்று 1 மட்டும் சரி"
-            },
-            {
-                question: "இந்தியாவின் முதல் ஐந்தாண்டுத் திட்டம் (1951-1956) எந்தப் பொருளாதார மாதிரியை அடிப்படையாகக் கொண்டது? ",
-                options: ["மஹலனோபிஸ் மாதிரி (Mahalanobis Model)","காந்திய மாதிரி (Gandhian Model)","ஹாரட்-டோமர் மாதிரி (Harrod-Domar Model)","நேருவியன் மாதிரி (Nehruvian Model)"],
-                answer: "ஹாரட்-டோமர் மாதிரி (Harrod-Domar Model)"
-            },
-            {
-                question: "'வறுமை ஒழிப்பு' (Garibi Hatao) என்பது எந்த ஐந்தாண்டுத் திட்டத்தின் முக்கிய முழக்கமாக இருந்தது?",
-                options: ["நான்காம் ஐந்தாண்டுத் திட்டம்","ஐந்தாம் ஐந்தாண்டுத் திட்டம்","ஆறாம் ஐந்தாண்டுத் திட்டம்","ஏழாம் ஐந்தாண்டுத் திட்டம்"],
-                answer: "ஐந்தாம் ஐந்தாண்டுத் திட்டம்"
-            },
-            {
-                question: "இந்தியப் பொருளாதாரத்தின் பலவீனமாகக் கருதப்படுவது எது?",
-                options: ["அதிக மக்கள் தொகை அடர்த்தி", "மூலதன உருவாக்கம் குறைவு", "உள்கட்டமைப்பு பற்றாக்குறை", "இவை அனைத்தும்"],
-                answer: "இவை அனைத்தும்"
+        let quizData = [];  // global variable
+
+        async function loadQuizDataFromFile() {
+            try {
+                const response = await fetch("./static/docs/Tamil/1.json");  // JSON file fetch
+                quizData = await response.json();
+                console.log("Questions loaded:", quizData);
+            } catch (error) {
+                console.error("Error loading quiz data:", error);
             }
-        ];
+        }
+
         // DOM Elements
         const startScreen = document.getElementById('start-screen');
         const quizScreen = document.getElementById('quiz-screen');
@@ -156,7 +141,10 @@
         restartBtn.addEventListener('click', restartQuiz);
 
         // Functions
-        function startQuiz() {
+        async function startQuiz() {
+            if (quizData.length === 0) {
+                await loadQuizDataFromFile(); // JSON load செய்யும்
+            }
             username = usernameInput.value.trim();
             if (username) {
                 startScreen.classList.add('opacity-0');
