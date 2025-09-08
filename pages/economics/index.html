@@ -44,6 +44,20 @@
     li {
       margin: 0.6rem 0;
     }
+    button{
+      display: block;
+      padding: 0.8rem;
+      background: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #3b82f6;
+      font-weight: bold;
+      border: 1px solid #ddd;
+      transition: background 0.2s;
+    }
+    button:hover{
+      background: #f3e5f5;
+    }
     a {
       display: block;
       padding: 0.8rem;
@@ -82,7 +96,9 @@
   <main>
     <h2>Tests</h2>
     <ul>
-      <li><a href="./Tests/Test0.html" draggable="false">Test 0</a></li>
+      <li>
+        <button onclick="Telegram.WebApp.openLink('./Tests/Test0.html')" draggable="false">Test 0</button>
+      </li>
     </ul>
   </main>
 </body>
