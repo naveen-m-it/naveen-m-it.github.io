@@ -20,15 +20,9 @@
         -ms-user-select: none;     /* Internet Explorer/Edge */
         user-select: none;
 
-        background: linear-gradient(
-        rgba(255, 255, 255, 0.5),   /* top transparent white */
-        rgba(255, 255, 255, 0.5)    /* bottom transparent white */
-    ),
-    url("/static/Images/logo.jpg") center/cover fixed;
-        
     }
     header {
-      background: #4a148c;
+      background: #3b82f6;
       color: #fff;
       text-align: center;
       padding: 1rem;
@@ -55,7 +49,7 @@
       background: #fff;
       border-radius: 8px;
       text-decoration: none;
-      color: #4a148c;
+      color: #3b82f6;
       font-weight: bold;
       border: 1px solid #ddd;
       transition: background 0.2s;
@@ -70,12 +64,19 @@
       font-size: 0.9rem;
       color: #555;
     }
+    img{
+      height:60px; 
+      display:block; 
+      margin:0 auto 10px auto; 
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
   <header>
+    <img src="/static/Images/logo.jpg" alt="Academy Logo">
     <h1>Senthamil Ias Academy</h1>
-    <p>இந்தியப் பொருளாதாரம்</p>
+    <p>பொருளாதாரம்</p>
   </header>
   <main>
     <h2>Tests</h2>
@@ -83,8 +84,5 @@
       <li><a href="./Tests/Test0.html" draggable="false">Test 0</a></li>
     </ul>
   </main>
-  <footer>
-    <p>&copy; 2025 TNPSC தமிழ் தயாரிப்பு – Naveen</p>
-  </footer>
 </body>
 </html>

@@ -19,11 +19,6 @@
             -moz-user-select: none;    /* Firefox */
             -ms-user-select: none;     /* Internet Explorer/Edge */
             user-select: none;         /* Standard syntax */
-            
-            background-image: url("/static/Images/logo.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
 
         }
         /* Custom styles for radio buttons */
@@ -57,6 +52,7 @@
         
         <!-- Start Screen -->
         <div id="start-screen" class="bg-white p-8 rounded-xl shadow-lg text-center transition-opacity duration-500">
+            <img src="/static/images/logo.jpg" alt="Logo" class="h-16 mx-auto mb-4">
             <h1 class="text-3xl font-bold text-gray-800 mb-4">இந்தியப் பொருளாதாரம் Test 0</h1>
             <p class="text-gray-600 mb-6">Please enter your name to begin.</p>
             <input type="text" id="username" class="w-full max-w-sm mx-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" placeholder="Your Name">
@@ -167,9 +163,9 @@
 
         function loadQuestion() {
             const question = quizData[currentQuestionIndex];
+            optionsContainer.innerHTML = '';
             questionNumber.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
             questionText.textContent = question.question;
-            optionsContainer.innerHTML = '';
 
             question.options.forEach(option => {
                 const optionElement = document.createElement('div');

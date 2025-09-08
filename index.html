@@ -13,15 +13,10 @@
       -webkit-user-select: none; /* Safari */
             -moz-user-select: none;    /* Firefox */
             -ms-user-select: none;     /* Internet Explorer/Edge */
-            user-select: none;  
-            background: linear-gradient(
-        rgba(255, 255, 255, 0.5),   /* top transparent white */
-        rgba(255, 255, 255, 0.5)    /* bottom transparent white */
-    ),
-    url("/static/Images/logo.jpg") center/cover fixed;
+            user-select: none;
     }
     header {
-      background: #4a148c;
+      background: #3b82f6;
       color: #fff;
       text-align: center;
       padding: 1rem;
@@ -48,7 +43,7 @@
       background: #fff;
       border-radius: 8px;
       text-decoration: none;
-      color: #4a148c;
+      color: #3b82f6;
       font-weight: bold;
       border: 1px solid #ddd;
       transition: background 0.2s;
@@ -63,21 +58,24 @@
       font-size: 0.9rem;
       color: #555;
     }
+    img{
+      height:60px; 
+      display:block; 
+      margin:0 auto 10px auto; 
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
   <header>
+    <img src="/static/Images/logo.jpg" alt="Academy Logo">
     <h1>Senthamil Ias Academy</h1>
-    <p>Your exam companion</p>
   </header>
   <main>
     <h2>Topics</h2>
     <ul>
-      <li><a href="./pages/economics/index.html" draggable="false">🏛️ இந்தியப் பொருளாதாரம்</a></li>
+      <li><a href="./pages/economics/index.html" draggable="false">🏛️ பொருளாதாரம்</a></li>
     </ul>
   </main>
-  <footer>
-    <p>&copy; Senthamil Ias Academy</p>
-  </footer>
 </body>
 </html>
