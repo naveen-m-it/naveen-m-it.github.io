@@ -53,7 +53,7 @@
         <!-- Start Screen -->
         <div id="start-screen" class="bg-white p-8 rounded-xl shadow-lg text-center transition-opacity duration-500">
             <img src="/static/Images/logo.jpg" alt="Logo" class="h-16 mx-auto mb-4">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">தமிழ் 2022Y</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">தமிழ் Full test 1</h1>
             <p class="text-gray-600 mb-6">Please enter your name to begin.</p>
             <input type="text" id="username" class="w-full max-w-sm mx-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" placeholder="Your Name">
             <button id="start-btn" class="w-full max-w-sm mx-auto bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
@@ -144,7 +144,7 @@
         // Functions
         async function startQuiz() {
             if (quizData.length === 0) {
-                await loadQuizDataFromFile(); // JSON load செய்யும்
+                await loadQuizDataFromFile();
             }
             username = usernameInput.value.trim();
             if (username) {
