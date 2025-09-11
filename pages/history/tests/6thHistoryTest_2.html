@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senthamil Ias Academy</title>
+    <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Disabling text selection as requested */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Internet Explorer/Edge */
+            user-select: none;         /* Standard syntax */
+
+        }
+        /* Custom styles for radio buttons */
+        .custom-radio:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+            border-color: #3b82f6; /* bg-blue-500 */
+            background-color: #3b82f6;
+        }
+        .correct-answer {
+            background-color: #dcfce7; /* green-100 */
+            border-left-color: #22c55e; /* green-500 */
+        }
+        .wrong-answer {
+            background-color: #fee2e2; /* red-100 */
+            border-left-color: #ef4444; /* red-500 */
+        }
+        .indicated-correct {
+            color: #16a34a; /* green-600 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();               // fullscreen
+    </script>
+    <div class="w-full max-w-2xl mx-auto">
+        
+        <!-- Start Screen -->
+        <div id="start-screen" class="bg-white p-8 rounded-xl shadow-lg text-center transition-opacity duration-500">
+            <img src="/static/Images/logo.jpg" alt="Logo" class="h-16 mx-auto mb-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">வரலாறு Test 2</h1>
+            <p class="text-gray-600 mb-6">Please enter your name to begin.</p>
+            <input type="text" id="username" class="w-full max-w-sm mx-auto px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" placeholder="Your Name">
+            <button id="start-btn" class="w-full max-w-sm mx-auto bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Start Test
+            </button>
+            <p id="username-error" class="text-red-500 mt-4 text-sm h-4"></p>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="bg-white p-8 rounded-xl shadow-lg hidden">
+            <div class="mb-6">
+                <p id="question-number" class="text-sm text-blue-500 font-semibold"></p>
+                <h2 id="question-text" class="text-sm font-bold text-gray-800 mt-2"></h2>
+            </div>
+            <div id="options-container" class="space-y-4 mb-8">
+                <!-- Options will be dynamically inserted here -->
+            </div>
+            <div class="flex justify-between items-center">
+                <button id="prev-btn" class="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition">Previous</button>
+                <button id="next-btn" class="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition">Next</button>
+                <button id="submit-btn" class="bg-green-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-600 transition hidden">Submit</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="bg-white p-8 rounded-xl shadow-lg hidden">
+            <h2 id="result-title" class="text-3xl font-bold text-center text-gray-800 mb-2"></h2>
+            <p id="score-text" class="text-xl text-center text-gray-600 mb-8"></p>
+            <div id="results-details" class="space-y-6">
+                <!-- Detailed results will be inserted here -->
+            </div>
+            <div class="text-center mt-8">
+                <button id="restart-btn" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                    Try Again
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let quizData = [];  // global variable
+
+        async function loadQuizDataFromFile() {
+            try {
+                const response = await fetch("/pages/history/tests/questions/6History100_2.json");  // JSON file fetch
+                quizData = await response.json();
+                console.log("Questions loaded:", quizData);
+            } catch (error) {
+                console.error("Error loading quiz data:", error);
+            }
+        }
+
+        // DOM Elements
+        const startScreen = document.getElementById('start-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
+
+        const startBtn = document.getElementById('start-btn');
+        const usernameInput = document.getElementById('username');
+        const usernameError = document.getElementById('username-error');
+
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const questionNumber = document.getElementById('question-number');
+        
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+
+        const resultTitle = document.getElementById('result-title');
+        const scoreText = document.getElementById('score-text');
+        const resultsDetails = document.getElementById('results-details');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Quiz State
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let username = "";
+
+        // Event Listeners
+        startBtn.addEventListener('click', startQuiz);
+        prevBtn.addEventListener('click', prevQuestion);
+        nextBtn.addEventListener('click', nextQuestion);
+        submitBtn.addEventListener('click', showResults);
+        restartBtn.addEventListener('click', restartQuiz);
+
+        // Functions
+        async function startQuiz() {
+            if (quizData.length === 0) {
+                await loadQuizDataFromFile();
+            }
+            username = usernameInput.value.trim();
+            if (username) {
+                startScreen.classList.add('opacity-0');
+                setTimeout(() => {
+                    startScreen.classList.add('hidden');
+                    quizScreen.classList.remove('hidden');
+                    quizScreen.classList.add('opacity-100');
+                    loadQuestion();
+                }, 500); // Match transition duration
+            } else {
+                usernameError.textContent = "Please enter your name.";
+                setTimeout(() => usernameError.textContent = "", 3000);
+            }
+        }
+
+        function loadQuestion() {
+            const question = quizData[currentQuestionIndex];
+            optionsContainer.innerHTML = '';
+            questionNumber.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+            questionText.textContent = question.question;
+
+            question.options.forEach(option => {
+                const optionElement = document.createElement('div');
+                optionElement.innerHTML = `
+                    <label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                        <input type="radio" name="question${currentQuestionIndex}" value="${option}" class="w-5 h-5 mr-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 custom-radio focus:ring-2">
+                        <span class="text-gray-700">${option}</span>
+                    </label>
+                `;
+                const radioBtn = optionElement.querySelector('input');
+                if (userAnswers[currentQuestionIndex] === option) {
+                    radioBtn.checked = true;
+                }
+                radioBtn.addEventListener('change', () => {
+                    userAnswers[currentQuestionIndex] = radioBtn.value;
+                });
+                optionsContainer.appendChild(optionElement);
+            });
+
+            updateNavigationButtons();
+        }
+
+        function updateNavigationButtons() {
+            prevBtn.classList.toggle('hidden', currentQuestionIndex === 0);
+            nextBtn.classList.toggle('hidden', currentQuestionIndex === quizData.length - 1);
+            submitBtn.classList.toggle('hidden', currentQuestionIndex !== quizData.length - 1);
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        }
+
+        function showResults() {
+            let score = 0;
+            quizData.forEach((question, index) => {
+                if (userAnswers[index] === question.answer) {
+                    score++;
+                }
+            });
+            
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+
+            resultTitle.textContent = `Test Results for ${username}`;
+            scoreText.textContent = `You scored ${score} out of ${quizData.length}!`;
+            
+            resultsDetails.innerHTML = '';
+            quizData.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.answer;
+
+                const resultItem = document.createElement('div');
+                resultItem.className = `p-4 border-l-4 rounded-r-lg ${isCorrect ? 'correct-answer' : 'wrong-answer'}`;
+                
+                let detailsHTML = `<h3 class="font-bold text-lg text-gray-800 mb-2">${index + 1}. ${question.question}</h3>`;
+                detailsHTML += `<p class="text-gray-700">Your answer: ${userAnswer || 'Not answered'}</p>`;
+                
+                if (!isCorrect) {
+                    detailsHTML += `<p class="indicated-correct">Correct answer: ${question.answer}</p>`;
+                }
+
+                resultItem.innerHTML = detailsHTML;
+                resultsDetails.appendChild(resultItem);
+            });
+        }
+        
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers.fill(null);
+            username = "";
+            usernameInput.value = "";
+            usernameError.textContent = "";
+
+            resultScreen.classList.add('hidden');
+            startScreen.classList.remove('hidden');
+            startScreen.classList.remove('opacity-0');
+        }
+    </script>
+</body>
+</html>
