@@ -4,17 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <title>Senthamil Ias Academy</title>
+  <title>TNPSC தமிழ் தலைப்புகள்</title>
   <style>
     body {
       font-family: "Noto Sans Tamil", sans-serif;
       margin: 0; padding: 0;
       background: #f8f9fa;
 
+      /* Sticky footer trick */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+
       -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* Internet Explorer/Edge */
-            user-select: none;
+        -moz-user-select: none;    /* Firefox */
+        -ms-user-select: none;     /* Internet Explorer/Edge */
+        user-select: none;
+
     }
     header {
       background: #3b82f6;
@@ -37,6 +43,20 @@
     }
     li {
       margin: 0.6rem 0;
+    }
+    button{
+      display: block;
+      padding: 0.8rem;
+      background: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #3b82f6;
+      font-weight: bold;
+      border: 1px solid #ddd;
+      transition: background 0.2s;
+    }
+    button:hover{
+      background: #f3e5f5;
     }
     a {
       display: block;
@@ -65,44 +85,19 @@
       margin:0 auto 10px auto; 
       border-radius: 50%;
     }
-    button{
-      display: block;
-      padding: 0.8rem;
-      background: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #3b82f6;
-      font-weight: bold;
-      border: 1px solid #ddd;
-      transition: background 0.2s;
-    }
-    button:hover{
-      background: #f3e5f5;
-    }
   </style>
 </head>
 <body>
   <header>
     <img src="/static/Images/logo.jpg" alt="Academy Logo">
     <h1>Senthamil Ias Academy</h1>
+    <p>இந்திய ஆட்சியியல்</p>
   </header>
   <main>
-    <h2>Topics</h2>
+    <h2>Tests</h2>
     <ul>
       <li>
-        <a href="./pages/economics/index.html" draggable="false">பொருளாதாரம்</a>
-      </li>
-      <li>
-        <a href="./pages/tamil/index.html" draggable="false">தமிழ்</a>
-      </li>
-      <li>
-        <a href="./pages/history/index.html" draggable="false">வரலாறு</a>
-      </li>
-      <li>
-        <a href="./pages/geography/index.html" draggable="false">புவியியல்</a>
-      </li>
-      <li>
-        <a href="./pages/Polity/index.html" draggable="false">ஆட்சியியல்</a>
+        <a href="./tests/indian_polity_1.html">Test 1</a>
       </li>
     </ul>
   </main>
